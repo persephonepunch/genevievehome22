@@ -1,0 +1,40 @@
+---
+permalink: /collection-shop/rss.xml
+eleventyExcludeFromCollections: true
+---
+{%- if collections['collection-shop'][0] -%}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Collection-Shops </title>
+    <description>Collection-Shops  Feed</description>
+    <link>{{ settings.site.domain }}</link>
+    <pubDate>{{ collections['collection-shop'][0].date.toUTCString() }}</pubDate>
+    <atom:link href="{{ settings.site.domain }}/collection-shop/rss.xml" rel="self" type="application/rss+xml"/>
+    {%- for post in collections['collection-shop'] | reverse %}
+        <item>
+            <title>{{ post.data.title }}</title>
+            {% if post.data['f_image'] %}
+            <media:content url="{{ settings.site.domain }}{{ post.data['f_image'].url }}" medium="image"/>
+            {% elif post.data['f_main-image'] %}
+            <media:content url="{{ settings.site.domain }}{{ post.data['f_main-image'].url }}" medium="image"/>
+            {% elif post.data['f_thumbnail-image'] %}
+            <media:content url="{{ settings.site.domain }}{{ post.data['f_thumbnail-image'].url }}" medium="image"/>
+            {% endif %}
+            <link>{{ settings.site.domain }}{{ post.url | url}}</link>
+            <pubDate>{{ post.date.toUTCString() }}</pubDate>
+            <guid>{{ settings.site.domain }}{{ post.url | url}}</guid>
+            {% if post.data['f_excerpt'] %}
+            <description>{{post.data['f_excerpt']}}</description>
+            {% elif post.data['f_summary'] %}
+            <description>{{post.data['f_summary']}}</description>
+            {% elif post.data['f_post-summary'] %}
+            <description>{{post.data['f_post-summary']}}</description>
+            {% else %}
+            <content type="html">{{ post.templateContent }}</content>
+            {% endif %}
+        </item>
+    {%- endfor %}
+  </channel>
+</rss>
+{% endif %}

@@ -1,0 +1,35 @@
+<div class="global-styles">
+      <div class="html w-embed">
+        <style>
+/* ALL PAGES CSS */
+/* Main Variables */
+:root {
+  --main-dark: black;
+  --main-light: white;
+}
+/* Global Styles */
+::selection {
+	background: var(--main-dark);
+  color: var(--main-light);
+  text-shadow: none;
+}
+img::selection, svg::selection {
+	background: transparent;
+}
+/* Link color inherits from parent font color  */
+a {
+	color: inherit;
+}
+/* Disable / enable clicking on an element and its children  */
+.no-click {
+	pointer-events: none;
+}
+.can-click {
+	pointer-events: auto;
+}
+body {
+    overscroll-behavior-y: none;
+}
+</style>
+      </div>
+    </div>

@@ -1,0 +1,36 @@
+body * {
+    font-family: "Open Sans", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width:4px;
+}
+
+/*track*/
+::-webkit-scrollbar-track {
+    background:rgba(255, 255, 255, 0.57);
+}
+
+/*thumb*/
+::-webkit-scrollbar-thumb {
+    background:rgb(58, 105, 199);
+}
+
+.price-wrapper {
+    padding: 0px!important;
+}
+
+.price-input-wrapper {
+    padding: 16px 20px;
+    display: flex;
+    justify-items: center;
+    border-bottom: 2px solid rgb(223, 223, 227);
+}
+
+.price-input-wrapper:last-of-type {
+    border-bottom: 0;
+}
+
+span.currency-symbol {
+    font-weight: bold;
+}

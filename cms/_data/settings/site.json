@@ -1,0 +1,13 @@
+{
+  "domain": "",
+  "images_optimization": {
+    "formats": [
+      "webp"
+    ],
+    "dimensions": [
+      800,
+      1080,
+      1600
+    ]
+  }
+}
